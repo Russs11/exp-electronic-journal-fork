@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 import Exp from '../entities/Exp'
 import Report from '../entities/Report'
 import InfoSeparator from './InfoSeparator'
@@ -557,7 +557,27 @@ const ModalInfo: FC<ModalInfoProps> = ({ dbExps, searchArr }) => {
 
       // вычисление дней, затраченных на производство экспертиз
       if (item.getDateExpComplete() !== '') {
-        if (item.getDatePetitionEnd() !== '') {
+        if (
+          item.getDateProlongationStart() !== '' &&
+          item.getValueOfProlongation() !== ''
+        ) {
+          const start = Number(new Date(item.getDateExpEnd()))
+          const end = Number(new Date(item.getDateExpComplete()))
+          const res = (end - start) / 1000 / 60 / 60 / 24
+          if (item.getTypeOfExpertise() === 'Почерковедческая') {
+            if (res > 0 && res < 5) {
+              expsDaysSpent.Total['до 5 дней'] += 1
+              expsDaysSpent.Handwriting['до 5 дней'] += 1
+            } else if (res >= 5 && res < 15) {
+              expsDaysSpent.Total['до 15 дней'] += 1
+              expsDaysSpent.Handwriting['до 15 дней'] += 1
+            } else if (res > 15) {
+              expsDaysSpent.Total['более 15 дней'] += 1
+              expsDaysSpent.Handwriting['более 15 дней'] += 1
+            }
+            console.log(res)
+          }
+        } else if (item.getDatePetitionEnd() !== '') {
           const start = Number(new Date(item.getDatePetitionEnd()))
           const end = Number(new Date(item.getDateExpComplete()))
           const res = (end - start) / 1000 / 60 / 60 / 24
@@ -616,7 +636,7 @@ const ModalInfo: FC<ModalInfoProps> = ({ dbExps, searchArr }) => {
             } else if (res > 15) {
               expsDaysSpent.Total['более 15 дней'] += 1
               expsDaysSpent.Handwriting['более 15 дней'] += 1
-       
+              console.log(res)
             }
           }
 
