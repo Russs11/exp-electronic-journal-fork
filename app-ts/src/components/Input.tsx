@@ -167,9 +167,9 @@ const Input: FC<IInputProps> = ({
           <option>УМВД России по г. Симферополю ОП №3 "Центральный"</option>
           <option>УМВД России по г. Севастополю</option>
           <option>УМВД России по г. Керчи</option>
+          <option>УМВД России по г. Симферополю</option>
           <option>ЛОП</option>
           <option>СЧСУ МВД</option>
-          <option>УМВД России по г. Симферополю</option>
           <option>ОКОН по Симферополю</option>
           <option>ДНР</option>
           <option>ЛНР</option>

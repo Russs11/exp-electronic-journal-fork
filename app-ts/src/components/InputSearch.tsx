@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC } from 'react'
 import './Input.scss'
 
 interface IInputSearchProps {
@@ -169,48 +169,55 @@ const InputSearch: FC<IInputSearchProps> = ({
     }
     if (listName === 'unitOfService') {
       if (listType === 'police') {
-        input = <select className='select' value={value} onChange={(event: React.ChangeEvent<HTMLSelectElement>) => {
-          onChangeUnitOfServiceHandler?.(event.target.value)
-        }}>
-          <option>не указано</option>
-          <option>ОМВД России по г. Евпатории</option>
-          <option>ОМВД России по г. Феодосии</option>
-          <option>ОМВД России по г. Судаку</option>
-          <option>ОМВД России по г. Алуште</option>
-          <option>ОМВД России по г. Армянску</option>
-          <option>ОМВД России по Бахчисарайскому району</option>
-          <option>ОМВД России по Белогорскому району</option>
-          <option>МО МВД России «Джанкойский»</option>
-          <option>ОМВД России по Кировскому району</option>
-          <option>ОМВД России по Красногвардейскому району</option>
-          <option>МОМВД России «Красноперекопский»</option>
-          <option>ОМВД России по Ленинскому району</option>
-          <option>ОМВД России по Нижнегорскому району</option>
-          <option>ОМВД России по Первомайскому району</option>
-          <option>ОМВД России по Раздольненскому району</option>
-          <option>МОМВД России «Сакский»</option>
-          <option>ОМВД России по Симферопольскому району</option>
-          <option>ОМВД России по Советскому району</option>
-          <option>ОМВД России по Черноморскому району</option>
-          <option>УМВД России по г. Ялте</option>
-          <option>УМВД России по г. Ялте ОП №1 "Алупкинский"</option>
-          <option>УМВД России по г. Ялте ОП №2 "Ливадийский"</option>
-          <option>УМВД России по г. Ялте ОП №3 "Массандровский"</option>
-          <option>УМВД России по г. Симферополю ОП №1 "Железнодорожный"</option>
-          <option>УМВД России по г. Симферополю ОП №2 "Киевский"</option>
-          <option>УМВД России по г. Симферополю ОП №3 "Центральный"</option>
-          <option>УМВД России по г. Севастополю</option>
-          <option>УМВД России по г. Керчи</option>
-          <option>ЛОП</option>
-          <option>СЧСУ МВД</option>
-          <option>СЧСУ</option>
-          <option>ОКОН по Симферополю</option>
-          <option>ДНР</option>
-          <option>ЛНР</option>
-          <option>Херсонская область</option>
-          <option>Запорожская область</option>
-          <option>ЛУ на транспорте</option>
-        </select>
+        input = (
+          <select
+            className='select'
+            value={value}
+            onChange={(event: React.ChangeEvent<HTMLSelectElement>) => {
+              onChangeUnitOfServiceHandler?.(event.target.value)
+            }}
+          >
+            <option>не указано</option>
+            <option>ОМВД России по г. Евпатории</option>
+            <option>ОМВД России по г. Феодосии</option>
+            <option>ОМВД России по г. Судаку</option>
+            <option>ОМВД России по г. Алуште</option>
+            <option>ОМВД России по г. Армянску</option>
+            <option>ОМВД России по Бахчисарайскому району</option>
+            <option>ОМВД России по Белогорскому району</option>
+            <option>МО МВД России «Джанкойский»</option>
+            <option>ОМВД России по Кировскому району</option>
+            <option>ОМВД России по Красногвардейскому району</option>
+            <option>МОМВД России «Красноперекопский»</option>
+            <option>ОМВД России по Ленинскому району</option>
+            <option>ОМВД России по Нижнегорскому району</option>
+            <option>ОМВД России по Первомайскому району</option>
+            <option>ОМВД России по Раздольненскому району</option>
+            <option>МОМВД России «Сакский»</option>
+            <option>ОМВД России по Симферопольскому району</option>
+            <option>ОМВД России по Советскому району</option>
+            <option>ОМВД России по Черноморскому району</option>
+            <option>УМВД России по г. Ялте</option>
+            <option>УМВД России по г. Ялте ОП №1 "Алупкинский"</option>
+            <option>УМВД России по г. Ялте ОП №2 "Ливадийский"</option>
+            <option>УМВД России по г. Ялте ОП №3 "Массандровский"</option>
+            <option> УМВД России по г. Симферополю ОП №1 "Железнодорожный"</option>
+            <option>УМВД России по г. Симферополю ОП №2 "Киевский"</option>
+            <option>УМВД России по г. Симферополю ОП №3 "Центральный"</option>
+            <option>УМВД России по г. Севастополю</option>
+            <option>УМВД России по г. Керчи</option>
+            <option>УМВД России по г. Симферополю</option>
+            <option>ЛОП</option>
+            <option>СЧСУ МВД</option>
+            <option>СЧСУ</option>
+            <option>ОКОН по Симферополю</option>
+            <option>ДНР</option>
+            <option>ЛНР</option>
+            <option>Херсонская область</option>
+            <option>Запорожская область</option>
+            <option>ЛУ на транспорте</option>
+          </select>
+        )
       }
       if (listType === 'investigation') {
         input = <select className='select' value={value} onChange={(event) => {
