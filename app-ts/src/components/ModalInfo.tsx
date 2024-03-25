@@ -849,7 +849,7 @@ const ModalInfo: FC<ModalInfoProps> = ({ dbExps, searchArr }) => {
   } else {
     report = addReportData(dbExps)
   }
-console.log(report.getExpsWithProlongation('Почерковедческая'))
+  console.log(report.getExpsWithProlongation('Почерковедческая'))
   return (
     <>
       <InfoTitle text='Количество назначенных экспертиз' />
