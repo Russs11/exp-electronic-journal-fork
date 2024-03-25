@@ -13,6 +13,12 @@ export default class Report {
     Portrait: '0',
     Total: '0',
   }
+  expsWithProlongation = {
+    Handwriting: '0',
+    TCED: '0',
+    Portrait: '0',
+    Total: '0',
+  }
   satisfiedPetitions = {
     Handwriting: '0',
     TCED: '0',
@@ -23,28 +29,27 @@ export default class Report {
     Handwriting: {
       'до 5 дней': '',
       'до 15 дней': '',
-      'более 15 дней': ''
+      'более 15 дней': '',
     },
     TCED: {
       'до 5 дней': '',
       'до 15 дней': '',
-      'более 15 дней': ''
+      'более 15 дней': '',
     },
     Portrait: {
       'до 5 дней': '',
       'до 15 дней': '',
-      'более 15 дней': ''
+      'более 15 дней': '',
     },
     Total: {
       'до 5 дней': '',
       'до 15 дней': '',
-      'более 15 дней': ''
-    }
-
+      'более 15 дней': '',
+    },
   }
   articleExps = {
     Handwriting: {
-      'Всего': '',
+      Всего: '',
       'ст 101': '',
       'ст 105': '',
       'ст 158': '',
@@ -52,10 +57,10 @@ export default class Report {
       'ст 160': '',
       'ст 186,187': '',
       'ст 222': '',
-      'ст 264': ''
+      'ст 264': '',
     },
     TCED: {
-      'Всего': '',
+      Всего: '',
       'ст 101': '',
       'ст 105': '',
       'ст 158': '',
@@ -63,10 +68,10 @@ export default class Report {
       'ст 160': '',
       'ст 186,187': '',
       'ст 222': '',
-      'ст 264': ''
+      'ст 264': '',
     },
     Portrait: {
-      'Всего': '',
+      Всего: '',
       'ст 101': '',
       'ст 105': '',
       'ст 158': '',
@@ -74,11 +79,11 @@ export default class Report {
       'ст 160': '',
       'ст 186,187': '',
       'ст 222': '',
-      'ст 264': ''
+      'ст 264': '',
     },
     Verifications: '',
     Total: {
-      'Всего': '',
+      Всего: '',
       'ст 101': '',
       'ст 105': '',
       'ст 158': '',
@@ -86,12 +91,12 @@ export default class Report {
       'ст 160': '',
       'ст 186,187': '',
       'ст 222': '',
-      'ст 264': ''
-    }
+      'ст 264': '',
+    },
   }
   executorExps = {
     Handwriting: {
-      'Всего': '',
+      Всего: '',
       'Польченко Т.В.': '',
       'Поволодцкий Д.Г.': '',
       'Васильев И.С.': '',
@@ -101,10 +106,10 @@ export default class Report {
       'Голынков Д.Н.': '',
       'Шулипа Е.Ю.': '',
       'Киселев А.С.': '',
-      'Марчук В.А.': ''
+      'Марчук В.А.': '',
     },
     TCED: {
-      'Всего': '',
+      Всего: '',
       'Польченко Т.В.': '',
       'Поволодцкий Д.Г.': '',
       'Васильев И.С.': '',
@@ -114,10 +119,10 @@ export default class Report {
       'Голынков Д.Н.': '',
       'Шулипа Е.Ю.': '',
       'Киселев А.С.': '',
-      'Марчук В.А.': ''
+      'Марчук В.А.': '',
     },
     Portrait: {
-      'Всего': '',
+      Всего: '',
       'Польченко Т.В.': '',
       'Поволодцкий Д.Г.': '',
       'Васильев И.С.': '',
@@ -127,10 +132,10 @@ export default class Report {
       'Голынков Д.Н.': '',
       'Шулипа Е.Ю.': '',
       'Киселев А.С.': '',
-      'Марчук В.А.': ''
+      'Марчук В.А.': '',
     },
     Verifications: {
-      'Всего': '',
+      Всего: '',
       'Польченко Т.В.': '',
       'Поволодцкий Д.Г.': '',
       'Васильев И.С.': '',
@@ -140,10 +145,10 @@ export default class Report {
       'Голынков Д.Н.': '',
       'Шулипа Е.Ю.': '',
       'Киселев А.С.': '',
-      'Марчук В.А.': ''
+      'Марчук В.А.': '',
     },
     Total: {
-      'Всего': '',
+      Всего: '',
       'Польченко Т.В.': '',
       'Поволодцкий Д.Г.': '',
       'Васильев И.С.': '',
@@ -153,8 +158,8 @@ export default class Report {
       'Голынков Д.Н.': '',
       'Шулипа Е.Ю.': '',
       'Киселев А.С.': '',
-      'Марчук В.А.': ''
-    }
+      'Марчук В.А.': '',
+    },
   }
 
   getAssignedHandwritingExps(): string {
@@ -189,6 +194,13 @@ export default class Report {
     if (id === 'Всего') return this.expsWithPetition.Total
     return ''
   }
+  getExpsWithProlongation(id: string): string {
+    if (id === 'Почерковедческая') return this.expsWithProlongation.Handwriting
+    if (id === 'ТКЭД') return this.expsWithProlongation.TCED
+    if (id === 'Портретная') return this.expsWithProlongation.Portrait
+    if (id === 'Всего') return this.expsWithProlongation.Total
+    return ''
+  }
 
   getSatisfiedPetitions(id: string): string {
     if (id === 'Почерковедческая') return this.satisfiedPetitions.Handwriting
@@ -200,7 +212,8 @@ export default class Report {
   getExpsDaysSpentHandwriting(id: string): string {
     if (id === 'до 5 дней') return this.expsDaysSpent.Handwriting['до 5 дней']
     if (id === 'до 15 дней') return this.expsDaysSpent.Handwriting['до 15 дней']
-    if (id === 'более 15 дней') return this.expsDaysSpent.Handwriting['более 15 дней']
+    if (id === 'более 15 дней')
+      return this.expsDaysSpent.Handwriting['более 15 дней']
     return ''
   }
   getExpsDaysSpentTCED(id: string): string {
@@ -212,7 +225,8 @@ export default class Report {
   getExpsDaysSpentPortrait(id: string): string {
     if (id === 'до 5 дней') return this.expsDaysSpent.Portrait['до 5 дней']
     if (id === 'до 15 дней') return this.expsDaysSpent.Portrait['до 15 дней']
-    if (id === 'более 15 дней') return this.expsDaysSpent.Portrait['более 15 дней']
+    if (id === 'более 15 дней')
+      return this.expsDaysSpent.Portrait['более 15 дней']
     return ''
   }
   getExpsDaysSpentTotal(id: string): string {
@@ -274,22 +288,33 @@ export default class Report {
   }
   getExecutorExpsHandwriting(id: string): string {
     if (id === 'Всего') return this.executorExps.Handwriting['Всего']
-    if (id === 'Польченко Т.В.') return this.executorExps.Handwriting['Польченко Т.В.']
-    if (id === 'Поволодцкий Д.Г.') return this.executorExps.Handwriting['Поволодцкий Д.Г.']
-    if (id === 'Васильев И.С.') return this.executorExps.Handwriting['Васильев И.С.']
-    if (id === 'Арзяков Д.Н.') return this.executorExps.Handwriting['Арзяков Д.Н.']
-    if (id === 'Халилов Р.Н.') return this.executorExps.Handwriting['Халилов Р.Н.']
-    if (id === 'Балабанов А.А.') return this.executorExps.Handwriting['Балабанов А.А.']
-    if (id === 'Голынков Д.Н.') return this.executorExps.Handwriting['Голынков Д.Н.']
-    if (id === 'Шулипа Е.Ю.') return this.executorExps.Handwriting['Шулипа Е.Ю.']
-    if (id === 'Киселев А.С.') return this.executorExps.Handwriting['Киселев А.С.']
-    if (id === 'Марчук В.А.') return this.executorExps.Handwriting['Марчук В.А.']
+    if (id === 'Польченко Т.В.')
+      return this.executorExps.Handwriting['Польченко Т.В.']
+    if (id === 'Поволодцкий Д.Г.')
+      return this.executorExps.Handwriting['Поволодцкий Д.Г.']
+    if (id === 'Васильев И.С.')
+      return this.executorExps.Handwriting['Васильев И.С.']
+    if (id === 'Арзяков Д.Н.')
+      return this.executorExps.Handwriting['Арзяков Д.Н.']
+    if (id === 'Халилов Р.Н.')
+      return this.executorExps.Handwriting['Халилов Р.Н.']
+    if (id === 'Балабанов А.А.')
+      return this.executorExps.Handwriting['Балабанов А.А.']
+    if (id === 'Голынков Д.Н.')
+      return this.executorExps.Handwriting['Голынков Д.Н.']
+    if (id === 'Шулипа Е.Ю.')
+      return this.executorExps.Handwriting['Шулипа Е.Ю.']
+    if (id === 'Киселев А.С.')
+      return this.executorExps.Handwriting['Киселев А.С.']
+    if (id === 'Марчук В.А.')
+      return this.executorExps.Handwriting['Марчук В.А.']
     return ''
   }
   getExecutorExpsTCED(id: string): string {
     if (id === 'Всего') return this.executorExps.TCED['Всего']
     if (id === 'Польченко Т.В.') return this.executorExps.TCED['Польченко Т.В.']
-    if (id === 'Поволодцкий Д.Г.') return this.executorExps.TCED['Поволодцкий Д.Г.']
+    if (id === 'Поволодцкий Д.Г.')
+      return this.executorExps.TCED['Поволодцкий Д.Г.']
     if (id === 'Васильев И.С.') return this.executorExps.TCED['Васильев И.С.']
     if (id === 'Арзяков Д.Н.') return this.executorExps.TCED['Арзяков Д.Н.']
     if (id === 'Халилов Р.Н.') return this.executorExps.TCED['Халилов Р.Н.']
@@ -302,13 +327,18 @@ export default class Report {
   }
   getExecutorExpsPortrait(id: string): string {
     if (id === 'Всего') return this.executorExps.Portrait['Всего']
-    if (id === 'Польченко Т.В.') return this.executorExps.Portrait['Польченко Т.В.']
-    if (id === 'Поволодцкий Д.Г.') return this.executorExps.Portrait['Поволодцкий Д.Г.']
-    if (id === 'Васильев И.С.') return this.executorExps.Portrait['Васильев И.С.']
+    if (id === 'Польченко Т.В.')
+      return this.executorExps.Portrait['Польченко Т.В.']
+    if (id === 'Поволодцкий Д.Г.')
+      return this.executorExps.Portrait['Поволодцкий Д.Г.']
+    if (id === 'Васильев И.С.')
+      return this.executorExps.Portrait['Васильев И.С.']
     if (id === 'Арзяков Д.Н.') return this.executorExps.Portrait['Арзяков Д.Н.']
     if (id === 'Халилов Р.Н.') return this.executorExps.Portrait['Халилов Р.Н.']
-    if (id === 'Балабанов А.А.') return this.executorExps.Portrait['Балабанов А.А.']
-    if (id === 'Голынков Д.Н.') return this.executorExps.Portrait['Голынков Д.Н.']
+    if (id === 'Балабанов А.А.')
+      return this.executorExps.Portrait['Балабанов А.А.']
+    if (id === 'Голынков Д.Н.')
+      return this.executorExps.Portrait['Голынков Д.Н.']
     if (id === 'Шулипа Е.Ю.') return this.executorExps.Portrait['Шулипа Е.Ю.']
     if (id === 'Киселев А.С.') return this.executorExps.Portrait['Киселев А.С.']
     if (id === 'Марчук В.А.') return this.executorExps.Portrait['Марчук В.А.']
@@ -316,26 +346,39 @@ export default class Report {
   }
   getExecutorExpsVerifications(id: string): string {
     if (id === 'Всего') return this.executorExps.Verifications['Всего']
-    if (id === 'Польченко Т.В.') return this.executorExps.Verifications['Польченко Т.В.']
-    if (id === 'Поволодцкий Д.Г.') return this.executorExps.Verifications['Поволодцкий Д.Г.']
-    if (id === 'Васильев И.С.') return this.executorExps.Verifications['Васильев И.С.']
-    if (id === 'Арзяков Д.Н.') return this.executorExps.Verifications['Арзяков Д.Н.']
-    if (id === 'Халилов Р.Н.') return this.executorExps.Verifications['Халилов Р.Н.']
-    if (id === 'Балабанов А.А.') return this.executorExps.Verifications['Балабанов А.А.']
-    if (id === 'Голынков Д.Н.') return this.executorExps.Verifications['Голынков Д.Н.']
-    if (id === 'Шулипа Е.Ю.') return this.executorExps.Verifications['Шулипа Е.Ю.']
-    if (id === 'Киселев А.С.') return this.executorExps.Verifications['Киселев А.С.']
-    if (id === 'Марчук В.А.') return this.executorExps.Verifications['Марчук В.А.']
+    if (id === 'Польченко Т.В.')
+      return this.executorExps.Verifications['Польченко Т.В.']
+    if (id === 'Поволодцкий Д.Г.')
+      return this.executorExps.Verifications['Поволодцкий Д.Г.']
+    if (id === 'Васильев И.С.')
+      return this.executorExps.Verifications['Васильев И.С.']
+    if (id === 'Арзяков Д.Н.')
+      return this.executorExps.Verifications['Арзяков Д.Н.']
+    if (id === 'Халилов Р.Н.')
+      return this.executorExps.Verifications['Халилов Р.Н.']
+    if (id === 'Балабанов А.А.')
+      return this.executorExps.Verifications['Балабанов А.А.']
+    if (id === 'Голынков Д.Н.')
+      return this.executorExps.Verifications['Голынков Д.Н.']
+    if (id === 'Шулипа Е.Ю.')
+      return this.executorExps.Verifications['Шулипа Е.Ю.']
+    if (id === 'Киселев А.С.')
+      return this.executorExps.Verifications['Киселев А.С.']
+    if (id === 'Марчук В.А.')
+      return this.executorExps.Verifications['Марчук В.А.']
     return ''
   }
   getExecutorExpsTotal(id: string): string {
     if (id === 'Всего') return this.executorExps.Total['Всего']
-    if (id === 'Польченко Т.В.') return this.executorExps.Total['Польченко Т.В.']
-    if (id === 'Поволодцкий Д.Г.') return this.executorExps.Total['Поволодцкий Д.Г.']
+    if (id === 'Польченко Т.В.')
+      return this.executorExps.Total['Польченко Т.В.']
+    if (id === 'Поволодцкий Д.Г.')
+      return this.executorExps.Total['Поволодцкий Д.Г.']
     if (id === 'Васильев И.С.') return this.executorExps.Total['Васильев И.С.']
     if (id === 'Арзяков Д.Н.') return this.executorExps.Total['Арзяков Д.Н.']
     if (id === 'Халилов Р.Н.') return this.executorExps.Total['Халилов Р.Н.']
-    if (id === 'Балабанов А.А.') return this.executorExps.Total['Балабанов А.А.']
+    if (id === 'Балабанов А.А.')
+      return this.executorExps.Total['Балабанов А.А.']
     if (id === 'Голынков Д.Н.') return this.executorExps.Total['Голынков Д.Н.']
     if (id === 'Шулипа Е.Ю.') return this.executorExps.Total['Шулипа Е.Ю.']
     if (id === 'Киселев А.С.') return this.executorExps.Total['Киселев А.С.']
@@ -380,6 +423,19 @@ export default class Report {
   setExpsWithPetitionTotal(value: string) {
     this.expsWithPetition.Total = value
   }
+  
+  setExpsWithProlongationHandwriting(value: string) {
+    this.expsWithProlongation.Handwriting = value
+  }
+  setExpsWithProlongationTCED(value: string) {
+    this.expsWithProlongation.TCED = value
+  }
+  setExpsWithProlongationPortrait(value: string) {
+    this.expsWithProlongation.Portrait = value
+  }
+  setExpsWithProlongationTotal(value: string) {
+    this.expsWithProlongation.Total = value
+  }
 
   setSatisfiedPetitionHandwriting(value: string) {
     this.satisfiedPetitions.Handwriting = value
@@ -416,7 +472,17 @@ export default class Report {
     this.expsDaysSpent.Total['более 15 дней'] = v3
   }
 
-  setArticleExpsHandwriting(v1: string, v2: string, v3: string, v4: string, v5: string, v6: string, v7: string, v8: string, v9: string): void {
+  setArticleExpsHandwriting(
+    v1: string,
+    v2: string,
+    v3: string,
+    v4: string,
+    v5: string,
+    v6: string,
+    v7: string,
+    v8: string,
+    v9: string
+  ): void {
     this.articleExps.Handwriting['Всего'] = v1
     this.articleExps.Handwriting['ст 101'] = v2
     this.articleExps.Handwriting['ст 105'] = v3
@@ -427,7 +493,17 @@ export default class Report {
     this.articleExps.Handwriting['ст 222'] = v8
     this.articleExps.Handwriting['ст 264'] = v9
   }
-  setArticleExpsTCED(v1: string, v2: string, v3: string, v4: string, v5: string, v6: string, v7: string, v8: string, v9: string): void {
+  setArticleExpsTCED(
+    v1: string,
+    v2: string,
+    v3: string,
+    v4: string,
+    v5: string,
+    v6: string,
+    v7: string,
+    v8: string,
+    v9: string
+  ): void {
     this.articleExps.TCED['Всего'] = v1
     this.articleExps.TCED['ст 101'] = v2
     this.articleExps.TCED['ст 105'] = v3
@@ -438,7 +514,17 @@ export default class Report {
     this.articleExps.TCED['ст 222'] = v8
     this.articleExps.TCED['ст 264'] = v9
   }
-  setArticleExpsPortrait(v1: string, v2: string, v3: string, v4: string, v5: string, v6: string, v7: string, v8: string, v9: string): void {
+  setArticleExpsPortrait(
+    v1: string,
+    v2: string,
+    v3: string,
+    v4: string,
+    v5: string,
+    v6: string,
+    v7: string,
+    v8: string,
+    v9: string
+  ): void {
     this.articleExps.Portrait['Всего'] = v1
     this.articleExps.Portrait['ст 101'] = v2
     this.articleExps.Portrait['ст 105'] = v3
@@ -452,7 +538,17 @@ export default class Report {
   setArticleExpsVerifications(value: string): void {
     this.articleExps.Verifications = value
   }
-  setArticleExpsTotal(v1: string, v2: string, v3: string, v4: string, v5: string, v6: string, v7: string, v8: string, v9: string): void {
+  setArticleExpsTotal(
+    v1: string,
+    v2: string,
+    v3: string,
+    v4: string,
+    v5: string,
+    v6: string,
+    v7: string,
+    v8: string,
+    v9: string
+  ): void {
     this.articleExps.Total['Всего'] = v1
     this.articleExps.Total['ст 101'] = v2
     this.articleExps.Total['ст 105'] = v3
@@ -464,7 +560,19 @@ export default class Report {
     this.articleExps.Total['ст 264'] = v9
   }
 
-  setExecutorExpsHandwriting(v1: string, v2: string, v3: string, v4: string, v5: string, v6: string, v7: string, v8: string, v9: string, v10: string, v11: string): void {
+  setExecutorExpsHandwriting(
+    v1: string,
+    v2: string,
+    v3: string,
+    v4: string,
+    v5: string,
+    v6: string,
+    v7: string,
+    v8: string,
+    v9: string,
+    v10: string,
+    v11: string
+  ): void {
     this.executorExps.Handwriting['Всего'] = v1
     this.executorExps.Handwriting['Польченко Т.В.'] = v2
     this.executorExps.Handwriting['Поволодцкий Д.Г.'] = v3
@@ -477,7 +585,19 @@ export default class Report {
     this.executorExps.Handwriting['Киселев А.С.'] = v10
     this.executorExps.Handwriting['Марчук В.А.'] = v11
   }
-  setExecutorExpsTCED(v1: string, v2: string, v3: string, v4: string, v5: string, v6: string, v7: string, v8: string, v9: string, v10: string, v11: string): void {
+  setExecutorExpsTCED(
+    v1: string,
+    v2: string,
+    v3: string,
+    v4: string,
+    v5: string,
+    v6: string,
+    v7: string,
+    v8: string,
+    v9: string,
+    v10: string,
+    v11: string
+  ): void {
     this.executorExps.TCED['Всего'] = v1
     this.executorExps.TCED['Польченко Т.В.'] = v2
     this.executorExps.TCED['Поволодцкий Д.Г.'] = v3
@@ -490,7 +610,19 @@ export default class Report {
     this.executorExps.TCED['Киселев А.С.'] = v10
     this.executorExps.TCED['Марчук В.А.'] = v11
   }
-  setExecutorExpsPortrait(v1: string, v2: string, v3: string, v4: string, v5: string, v6: string, v7: string, v8: string, v9: string, v10: string, v11: string): void {
+  setExecutorExpsPortrait(
+    v1: string,
+    v2: string,
+    v3: string,
+    v4: string,
+    v5: string,
+    v6: string,
+    v7: string,
+    v8: string,
+    v9: string,
+    v10: string,
+    v11: string
+  ): void {
     this.executorExps.Portrait['Всего'] = v1
     this.executorExps.Portrait['Польченко Т.В.'] = v2
     this.executorExps.Portrait['Поволодцкий Д.Г.'] = v3
@@ -503,7 +635,19 @@ export default class Report {
     this.executorExps.Portrait['Киселев А.С.'] = v10
     this.executorExps.Portrait['Марчук В.А.'] = v11
   }
-  setExecutorExpsVerifications(v1: string, v2: string, v3: string, v4: string, v5: string, v6: string, v7: string, v8: string, v9: string, v10: string, v11: string): void {
+  setExecutorExpsVerifications(
+    v1: string,
+    v2: string,
+    v3: string,
+    v4: string,
+    v5: string,
+    v6: string,
+    v7: string,
+    v8: string,
+    v9: string,
+    v10: string,
+    v11: string
+  ): void {
     this.executorExps.Verifications['Всего'] = v1
     this.executorExps.Verifications['Польченко Т.В.'] = v2
     this.executorExps.Verifications['Поволодцкий Д.Г.'] = v3
@@ -516,7 +660,19 @@ export default class Report {
     this.executorExps.Verifications['Киселев А.С.'] = v10
     this.executorExps.Verifications['Марчук В.А.'] = v11
   }
-  setExecutorExpsTotal(v1: string, v2: string, v3: string, v4: string, v5: string, v6: string, v7: string, v8: string, v9: string, v10: string, v11: string): void {
+  setExecutorExpsTotal(
+    v1: string,
+    v2: string,
+    v3: string,
+    v4: string,
+    v5: string,
+    v6: string,
+    v7: string,
+    v8: string,
+    v9: string,
+    v10: string,
+    v11: string
+  ): void {
     this.executorExps.Total['Всего'] = v1
     this.executorExps.Total['Польченко Т.В.'] = v2
     this.executorExps.Total['Поволодцкий Д.Г.'] = v3

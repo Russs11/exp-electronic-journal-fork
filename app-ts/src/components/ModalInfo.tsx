@@ -177,6 +177,12 @@ const ModalInfo: FC<ModalInfoProps> = ({ dbExps, searchArr }) => {
         'более 15 дней': 0,
       },
     }
+    let expsWithProlongation = {
+      Handwriting: 0,
+      TCED: 0,
+      Portrait: 0,
+      Total: 0,
+    }
     arr.forEach(item => {
       assignedExps.Total += 1
       executorExps.Total['Всего'] += 1
@@ -561,48 +567,21 @@ const ModalInfo: FC<ModalInfoProps> = ({ dbExps, searchArr }) => {
           item.getDateProlongationStart() !== '' &&
           item.getValueOfProlongation() !== ''
         ) {
-          const start = Number(new Date(item.getDateExpEnd()))
-          const end = Number(new Date(item.getDateExpComplete()))
-          const res = (end - start) / 1000 / 60 / 60 / 24
           if (item.getTypeOfExpertise() === 'Почерковедческая') {
-            if (res > 0 && res <= 5) {
-              expsDaysSpent.Total['до 5 дней'] += 1
-              expsDaysSpent.Handwriting['до 5 дней'] += 1
-            } else if (res > 5 && res <= 15) {
-              expsDaysSpent.Total['до 15 дней'] += 1
-              expsDaysSpent.Handwriting['до 15 дней'] += 1
-            } else if (res > 15) {
-              expsDaysSpent.Total['более 15 дней'] += 1
-              expsDaysSpent.Handwriting['более 15 дней'] += 1
-            }
+            expsWithProlongation.Total += 1
+            expsWithProlongation.Handwriting += 1
           }
           if (item.getTypeOfExpertise() === 'Портретная') {
-            if (res > 0 && res <= 5) {
-              expsDaysSpent.Total['до 5 дней'] += 1
-              expsDaysSpent.Portrait['до 5 дней'] += 1
-            } else if (res > 5 && res <= 15) {
-              expsDaysSpent.Total['до 15 дней'] += 1
-              expsDaysSpent.Portrait['до 15 дней'] += 1
-            } else if (res > 15) {
-              expsDaysSpent.Total['более 15 дней'] += 1
-              expsDaysSpent.Portrait['более 15 дней'] += 1
-            }
+            expsWithProlongation.Total += 1
+            expsWithProlongation.Portrait += 1
           }
 
           if (
             item.getTypeOfExpertise() === 'ТКЭД общ.' ||
             item.getTypeOfExpertise() === 'ТКЭД ден.'
           ) {
-            if (res > 0 && res <= 5) {
-              expsDaysSpent.Total['до 5 дней'] += 1
-              expsDaysSpent.TCED['до 5 дней'] += 1
-            } else if (res > 5 && res <= 15) {
-              expsDaysSpent.Total['до 15 дней'] += 1
-              expsDaysSpent.TCED['до 15 дней'] += 1
-            } else if (res > 15) {
-              expsDaysSpent.Total['более 15 дней'] += 1
-              expsDaysSpent.TCED['более 15 дней'] += 1
-            }
+            expsWithProlongation.Total += 1
+            expsWithProlongation.TCED += 1
           }
         } else if (item.getDatePetitionEnd() !== '') {
           const start = Number(new Date(item.getDatePetitionEnd()))
@@ -714,6 +693,15 @@ const ModalInfo: FC<ModalInfoProps> = ({ dbExps, searchArr }) => {
     report.setExpsWithPetitionTCED(expsWithPetition.TCED.toString())
     report.setExpsWithPetitionPortrait(expsWithPetition.Portrait.toString())
     report.setExpsWithPetitionTotal(expsWithPetition.Total.toString())
+
+    report.setExpsWithProlongationHandwriting(
+      expsWithProlongation.Handwriting.toString()
+    )
+    report.setExpsWithProlongationTCED(expsWithProlongation.TCED.toString())
+    report.setExpsWithProlongationPortrait(
+      expsWithProlongation.Portrait.toString()
+    )
+    report.setExpsWithProlongationTotal(expsWithProlongation.Total.toString())
 
     report.setSatisfiedPetitionHandwriting(
       satisfiedPetitions.Handwriting.toString()
@@ -861,7 +849,7 @@ const ModalInfo: FC<ModalInfoProps> = ({ dbExps, searchArr }) => {
   } else {
     report = addReportData(dbExps)
   }
-
+console.log(report.getExpsWithProlongation('Почерковедческая'))
   return (
     <>
       <InfoTitle text='Количество назначенных экспертиз' />
