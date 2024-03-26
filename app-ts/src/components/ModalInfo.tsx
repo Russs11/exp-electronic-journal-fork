@@ -849,7 +849,6 @@ const ModalInfo: FC<ModalInfoProps> = ({ dbExps, searchArr }) => {
   } else {
     report = addReportData(dbExps)
   }
-  console.log(report.getExpsWithProlongation('Почерковедческая'))
   return (
     <>
       <InfoTitle text='Количество назначенных экспертиз' />
@@ -885,6 +884,17 @@ const ModalInfo: FC<ModalInfoProps> = ({ dbExps, searchArr }) => {
       <InfoText text={report.getSatisfiedPetitions('Портретная')} />
       <InfoText text='Всего:' />
       <InfoText text={report.getSatisfiedPetitions('Всего')} />
+      <div></div>
+      <div></div>
+      <InfoTitle text='Количество экспертиз с продлением' />
+      <InfoText text='Почерковедческих:' />
+      <InfoText text={report.getExpsWithProlongation('Почерковедческая')} />
+      <InfoText text='ТКЭД:' />
+      <InfoText text={report.getExpsWithProlongation('ТКЭД')} />
+      <InfoText text='Портретных:' />
+      <InfoText text={report.getExpsWithProlongation('Портретная')} />
+      <InfoText text='Всего:' />
+      <InfoText text={report.getExpsWithProlongation('Всего')} />
       <div></div>
       <div></div>
       <InfoTitle text='Количество результативных экспертиз' />
