@@ -201,7 +201,7 @@ const InputSearch: FC<IInputSearchProps> = ({
             <option>УМВД России по г. Ялте ОП №1 "Алупкинский"</option>
             <option>УМВД России по г. Ялте ОП №2 "Ливадийский"</option>
             <option>УМВД России по г. Ялте ОП №3 "Массандровский"</option>
-            <option> УМВД России по г. Симферополю ОП №1 "Железнодорожный"</option>
+            <option>УМВД России по г. Симферополю ОП №1 "Железнодорожный"</option>
             <option>УМВД России по г. Симферополю ОП №2 "Киевский"</option>
             <option>УМВД России по г. Симферополю ОП №3 "Центральный"</option>
             <option>УМВД России по г. Севастополю</option>
@@ -248,24 +248,31 @@ const InputSearch: FC<IInputSearchProps> = ({
           <option>СО по Киевскому району г. Симферополь</option>
           <option>СО по Центральному району г. Симферополь</option>
           <option>Крымский СО на транспорте</option>
-          <option>Белагорский МСО</option>
+          <option>Белогорский МСО</option>
           <option>Кировский МСО</option>
           <option>Красногвардейский МСО</option>
         </select>
       }
     }
     if (listName === 'kindOfService') {
-      input = <select className='select' value={value} onChange={(event: React.ChangeEvent<HTMLSelectElement>) => {
-        onChangeKindOfServiceHandler?.(event.target.value)
-      }}>
-        <option>не указано</option>
-        <option>УУП</option>
-        <option>ОУР</option>
-        <option>ОЭБ</option>
-        <option>СО</option>
-        <option>ОД</option>
-        <option>УКОН</option>
-      </select>
+      input = (
+        <select
+          className='select'
+          value={value}
+          onChange={(event: React.ChangeEvent<HTMLSelectElement>) => {
+            onChangeKindOfServiceHandler?.(event.target.value)
+          }}
+        >
+          <option>не указано</option>
+          <option>УУП</option>
+          <option>ОУР</option>
+          <option>ОЭБ</option>
+          <option>СО</option>
+          <option>ОД</option>
+          <option>УКОН</option>
+          <option>ЦПЭ</option>
+        </select>
+      )
     }
     if (listName === 'typeOfMaterial') {
       input = <select className='select' value={value} onChange={(event: React.ChangeEvent<HTMLSelectElement>) => {
