@@ -201,12 +201,15 @@ const InputSearch: FC<IInputSearchProps> = ({
             <option>УМВД России по г. Ялте ОП №1 "Алупкинский"</option>
             <option>УМВД России по г. Ялте ОП №2 "Ливадийский"</option>
             <option>УМВД России по г. Ялте ОП №3 "Массандровский"</option>
-            <option>УМВД России по г. Симферополю ОП №1 "Железнодорожный"</option>
+            <option>
+              УМВД России по г. Симферополю ОП №1 "Железнодорожный"
+            </option>
             <option>УМВД России по г. Симферополю ОП №2 "Киевский"</option>
             <option>УМВД России по г. Симферополю ОП №3 "Центральный"</option>
             <option>УМВД России по г. Севастополю</option>
             <option>УМВД России по г. Керчи</option>
             <option>УМВД России по г. Симферополю</option>
+            <option>ЦПЭ МВД по Республике Крым</option>
             <option>ЛОП</option>
             <option>СЧСУ МВД</option>
             <option>СЧСУ</option>
@@ -270,7 +273,6 @@ const InputSearch: FC<IInputSearchProps> = ({
           <option>СО</option>
           <option>ОД</option>
           <option>УКОН</option>
-          <option>ЦПЭ</option>
         </select>
       )
     }
