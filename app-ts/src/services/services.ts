@@ -27,7 +27,7 @@ export function dateAddReduceDays(incomingDate: string, countOfDays: number, plu
   return dateFromRutoUs(date.toLocaleDateString())
 }
 // функции сохранения и загрузки базы
-export function loadExpsForAppDb(url: string, year: string) {
+export async function loadExpsForAppDb(url: string, year: string) {
   return fetch(url + `?year=${year}`).then((data) => data.json()).then((data: [] | string) => {
     const loadedData: Exp[] = []
     if (typeof data === 'string') {
