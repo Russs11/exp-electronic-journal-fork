@@ -417,6 +417,7 @@ const App = () => {
       setDbExps(data)
     })
   }, [])
+  
   useEffect(() => {
     loadExpsForAppDb("http://localhost:3001/get-db", year).then((data) => {
       setDbExps(data)

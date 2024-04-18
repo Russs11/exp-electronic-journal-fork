@@ -168,6 +168,7 @@ const Input: FC<IInputProps> = ({
           <option>УМВД России по г. Севастополю</option>
           <option>УМВД России по г. Керчи</option>
           <option>УМВД России по г. Симферополю</option>
+          <option>ЦПЭ МВД по Республике Крым</option>
           <option>ЛОП</option>
           <option>СЧСУ МВД</option>
           <option>ОКОН по Симферополю</option>
@@ -207,24 +208,30 @@ const Input: FC<IInputProps> = ({
           <option>СО по Киевскому району г. Симферополь</option>
           <option>СО по Центральному району г. Симферополь</option>
           <option>Крымский СО на транспорте</option>
-          <option>Белагорский МСО</option>
+          <option>Белогорский МСО</option>
           <option>Кировский МСО</option>
           <option>Красногвардейский МСО</option>
         </select>
       }
     }
     if (listName === 'kindOfService') {
-      input = <select className='select' value={value} onChange={(event) => {
-        onChangeKindOfServiceHandler?.(event.target.value)
-      }}>
-        <option>не указано</option>
-        <option>УУП</option>
-        <option>ОУР</option>
-        <option>ОЭБ</option>
-        <option>СО</option>
-        <option>ОД</option>
-        <option>УКОН</option>
-      </select>
+      input = (
+        <select
+          className='select'
+          value={value}
+          onChange={event => {
+            onChangeKindOfServiceHandler?.(event.target.value)
+          }}
+        >
+          <option>не указано</option>
+          <option>УУП</option>
+          <option>ОУР</option>
+          <option>ОЭБ</option>
+          <option>СО</option>
+          <option>ОД</option>
+          <option>УКОН</option>
+        </select>
+      )
     }
     if (listName === 'typeOfMaterial') {
       input = <select className='select' value={value} onChange={(event) => {
