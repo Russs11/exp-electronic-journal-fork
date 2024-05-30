@@ -627,7 +627,53 @@ const ModalInfo: FC<ModalInfoProps> = ({ dbExps, searchArr }) => {
               expsDaysSpent.TCED['более 15 дней'] += 1
             }
           }
-        } else {
+        } else if (item.getDatePetitionStart() !==  '' && item.getDatePetitionEnd() === ''){
+          const start = Number(new Date(item.getDatePetitionStart()))
+          const end = Number(new Date(item.getDateExpComplete()))
+          const res = (end - start) / 1000 / 60 / 60 / 24
+          if (item.getTypeOfExpertise() === 'Почерковедческая') {
+            if (res > 0 && res <= 5) {
+              expsDaysSpent.Total['до 5 дней'] += 1
+              expsDaysSpent.Handwriting['до 5 дней'] += 1
+            } else if (res > 5 && res <= 20) {
+              expsDaysSpent.Total['до 15 дней'] += 1
+              expsDaysSpent.Handwriting['до 15 дней'] += 1
+            } else if (res > 20) {
+              expsDaysSpent.Total['более 15 дней'] += 1
+              expsDaysSpent.Handwriting['более 15 дней'] += 1
+              console.log(res)
+            }
+          }
+          if (item.getTypeOfExpertise() === 'Портретная') {
+            if (res > 0 && res <= 5) {
+              expsDaysSpent.Total['до 5 дней'] += 1
+              expsDaysSpent.Portrait['до 5 дней'] += 1
+            } else if (res > 5 && res <= 20) {
+              expsDaysSpent.Total['до 15 дней'] += 1
+              expsDaysSpent.Portrait['до 15 дней'] += 1
+            } else if (res > 20) {
+              expsDaysSpent.Total['более 15 дней'] += 1
+              expsDaysSpent.Portrait['более 15 дней'] += 1
+            }
+          }
+
+          if (
+            item.getTypeOfExpertise() === 'ТКЭД общ.' ||
+            item.getTypeOfExpertise() === 'ТКЭД ден.'
+          ) {
+            if (res > 0 && res <= 5) {
+              expsDaysSpent.Total['до 5 дней'] += 1
+              expsDaysSpent.TCED['до 5 дней'] += 1
+            } else if (res > 5 && res <= 20) {
+              expsDaysSpent.Total['до 15 дней'] += 1
+              expsDaysSpent.TCED['до 15 дней'] += 1
+            } else if (res > 20) {
+              expsDaysSpent.Total['более 15 дней'] += 1
+              expsDaysSpent.TCED['более 15 дней'] += 1
+            }
+          }
+        }
+        else {
           const start = Number(new Date(item.getDateOfReceipt()))
           const end = Number(new Date(item.getDateExpComplete()))
           const res = (end - start) / 1000 / 60 / 60 / 24
